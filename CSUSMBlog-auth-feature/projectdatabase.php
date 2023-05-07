@@ -10,7 +10,7 @@ catch(PDOException $e )
 {
   die($e->getMessage());
 }
-echo "Connection Established\n";
+ echo "Connection Established\n";
 
   // This is for verifying the passed information where the passed information is username and userPassword
   $resultAdmin = $pdo->query("SELECT adminId FROM Admin WHERE username = 'CSUSM' && userPassword = '123654';");
