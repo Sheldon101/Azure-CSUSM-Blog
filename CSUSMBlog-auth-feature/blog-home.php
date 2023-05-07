@@ -10,11 +10,11 @@
   $thumbnail = "images/";
 //Try to connect to SQL server
 try
-{
-  $connString = "mysql:host=localhost; dbname=csusmblog";
-  $user = "root";
-  $pass = "root";
-  $pdo = new PDO($connString, $user, $pass); //$pdo is the main SQL accessor variable
+{ 
+  $connString = "mysql:host=azure-csusm-blog-server.mysql.database.azure.com; dbname=azure-csusm-blog-database";
+  $user = "sloyvxskbs";
+  $pass = "3E88Q2RCMV7JB5MD$";
+  $pdo = new PDO($connString, $user, $pass);//$pdo is the main SQL accessor variable
 }
 catch(PDOException $e )
 {
