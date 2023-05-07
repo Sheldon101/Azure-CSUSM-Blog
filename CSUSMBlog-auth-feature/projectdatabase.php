@@ -1,16 +1,16 @@
 <?php
 try
 {
-  $connString = "mysql:host=localhost; dbname=csusmblog";
-  $user = "root";
-  $pass = "root";
+  $connString = "mysql:host=azure-csusm-blog-server.mysql.database.azure.com; dbname=azure-csusm-blog-database";
+  $user = "sloyvxskbs";
+  $pass = "3E88Q2RCMV7JB5MD$";
   $pdo = new PDO($connString, $user, $pass);
 }
 catch(PDOException $e )
 {
   die($e->getMessage());
 }
-  echo "Connection Established\n";
+echo "Connection Established\n";
 
   // This is for verifying the passed information where the passed information is username and userPassword
   $resultAdmin = $pdo->query("SELECT adminId FROM Admin WHERE username = 'CSUSM' && userPassword = '123654';");
