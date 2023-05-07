@@ -8,7 +8,7 @@
   $content = '';
   $date = '';
   $thumbnail = "images/";
-//Try to connect to SQL server
+//Try to connect to the SQL server
 try
 { 
   $connString = "mysql:host=azure-csusm-blog-server.mysql.database.azure.com; dbname=azure-csusm-blog-database";
