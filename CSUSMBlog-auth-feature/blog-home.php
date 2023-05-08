@@ -10,7 +10,7 @@
   $thumbnail = "images/";
 //Try to connect to the SQL server
 
-// Connect to SQL server
+//Connect to SQL server
   try {
       $conn = new PDO("sqlsrv:server = tcp:csusm-server.database.windows.net,1433; Database = BLOG_CSUSM", "Citla", "{PASSword1#}");
       $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
