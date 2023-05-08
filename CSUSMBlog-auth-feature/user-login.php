@@ -23,16 +23,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die($message);
     }
 
+ //this code for sql server copy    
     // Connect to SQL server
     try {
-        $connString = "mysql:host=azure-csusm-blog-server.mysql.database.azure.com; dbname=azure-csusm-blog-database";
-        $user = "sloyvxskbs";
-        $pass = "3E88Q2RCMV7JB5MD$";
-        $pdo = new PDO($connString, $user, $pass, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)); //$pdo is the main SQL accessor variable
+        $conn = new PDO("sqlsrv:server = tcp:csusm-server.database.windows.net,1433; Database = BLOG_CSUSM", "Citla", "{PASSword1#}");
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     } catch (Exception $e) {
         $message = $e->getMessage();
         die($message);
     }
+    // SQL Server Extension Sample Code:
+    $connectionInfo = array("UID" => "Citla", "pwd" => "{PASSword1#}", "Database" => "BLOG_CSUSM", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
+    $serverName = "tcp:csusm-server.database.windows.net,1433";
+    $conn = sqlsrv_connect($serverName, $connectionInfo);
+    ///up to here 
 
     $statement= $pdo->prepare("SELECT * FROM Admin WHERE username=:username AND userPassword=:userPassword");
     $statement->execute([
