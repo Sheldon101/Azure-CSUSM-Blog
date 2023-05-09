@@ -14,9 +14,8 @@
   try {
       $conn = new PDO("sqlsrv:server = tcp:csusm-server.database.windows.net,1433; Database = BLOG_CSUSM", "Citla", "{PASSword1#}");
       $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  } catch (Exception $e) {
-      $message = $e->getMessage();
-      die($message);
+  } catch (PDOException $e) {
+      die($e->getMessage());
   }
   // SQL Server Extension Sample Code:
   $connectionInfo = array("UID" => "Citla", "pwd" => "{PASSword1#}", "Database" => "BLOG_CSUSM", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
