@@ -1,6 +1,6 @@
 <?php
 session_start();
-//declare variables
+//declare variables_n
 $username = "";
 $userPassword = "";
 
