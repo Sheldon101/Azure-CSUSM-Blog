@@ -29,16 +29,16 @@
 
       // Connect to SQL server
         try {
-            $conn = new PDO("sqlsrv:server = tcp:csusm-server.database.windows.net,1433; Database = BLOG_CSUSM", "Citla", "{PASSword1#}");
-            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+             $conn = new PDO("sqlsrv:server = tcp:csusm-server.database.windows.net,1433; Database = BLOG_CSUSM", "Citla", "{PASSword1#}");
+             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (Exception $e) {
             $message = $e->getMessage();
             die($message);
         }
     // SQL Server Extension Sample Code:
-    $connectionInfo = array("UID" => "Citla", "pwd" => "{PASSword1#}", "Database" => "BLOG_CSUSM", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
-    $serverName = "tcp:csusm-server.database.windows.net,1433";
-    $conn = sqlsrv_connect($serverName, $connectionInfo);
+        $connectionInfo = array("UID" => "Citla", "pwd" => "{PASSword1#}", "Database" => "BLOG_CSUSM", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
+        $serverName = "tcp:csusm-server.database.windows.net,1433";
+        $conn = sqlsrv_connect($serverName, $connectionInfo);
 
         $toppost = $pdo->query("SELECT * FROM Post ORDER BY postID DESC;");
         $postID = $toppost->fetch()["postID"];
